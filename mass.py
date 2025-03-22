@@ -17,3 +17,12 @@ class Mass():
     def force(self, v):
         self.inertia[0] += v[0] / self.mass
         self.inertia[1] += v[1] / self.mass
+    
+    def gravity(self, gravity):
+        y_velocity = 0
+        y_velocity += gravity
+        self.pos[1] += y_velocity
+
+        if self.pos[1] + self.size > 800:
+            self.pos[1] = 800 - self.size
+            y_velocity = 0
